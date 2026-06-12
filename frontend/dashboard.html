@@ -1,37 +1,331 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/global.css" />
-    <link rel="stylesheet" href="css/index.css" />
-  </head>
-  <body>
-    <section class="container">
-      <div>
-        <a href="index.html" class="navbar__logo">
-          <div class="navbar__logo-icon">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polyline points="2 12 6 12 8 5 10 19 12 12 14 15 16 12 22 12" />
-            </svg>
-          </div>
-          HealthCare <strong>Pro</strong>
-        </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — HealthCare Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body class="dash-body">
+  <header class="dash-header">
+    <a href="index.html" class="dash-header__logo">
+      <div class="dash-header__logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="2 12 6 12 8 5 10 19 12 12 14 15 16 12 22 12"/>
+        </svg>
       </div>
-    </section>
-  </body>
+      HealthCare <strong>Pro</strong>
+    </a>
+
+    <!-- Search -->
+    <div class="dash-header__search">
+      <svg class="dash-header__search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="search" class="dash-header__search-input"
+             placeholder="Search..." />
+    </div>
+
+    <!-- Right side -->
+    <div class="dash-header__right">
+      <!-- Bell icon -->
+      <button class="dash-header__icon-btn" aria-label="Notifications">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="dash-header__badge"></span>
+      </button>
+
+      <!-- User -->
+      <div class="dash-header__user">
+        <div class="dash-header__avatar">AI</div>
+        <div class="dash-header__user-info">
+          <span class="dash-header__user-name">Azizbek Inatov</span>
+          <span class="dash-header__user-meta">Shaxsiy · Beginner</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== LAYOUT WRAPPER ========== -->
+  <div class="dash-layout">
+
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar">
+      <nav class="sidebar__nav">
+        <ul class="sidebar__list">
+          <li class="sidebar__item sidebar__item--active">
+            <a href="dashboard.html" class="sidebar__link">
+              <!-- Grid / Dashboard icon -->
+              <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+              </svg>
+              Dashboard
+            </a>
+          </li>
+
+          <li class="sidebar__item">
+            <a href="#" class="sidebar__link">
+              <!-- Heart icon -->
+              <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+              Sog'liq ko'rsatkichlari
+            </a>
+          </li>
+
+          <li class="sidebar__item">
+            <a href="workouts.html" class="sidebar__link">
+              <!-- Dumbbell / activity icon -->
+                <svg class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round">
+                
+                    <path d="M5 9v6"/>
+                    <path d="M8 7v10"/>
+                    <path d="M16 7v10"/>
+                    <path d="M19 9v6"/>
+                    <path d="M8 12h8"/>
+                
+                    <path d="M3 10v4"/>
+                    <path d="M21 10v4"/>
+                </svg>
+              Fitness Rejalari
+            </a>
+          </li>
+
+          <li class="sidebar__item">
+            <a href="#" class="sidebar__link">
+              <!-- Trending up icon -->
+              <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                <polyline points="17 6 23 6 23 12"/>
+              </svg>
+              Jarayon
+            </a>
+          </li>
+
+          <li class="sidebar__item">
+            <a href="#" class="sidebar__link">
+              <!-- Target icon -->
+              <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="6"/>
+                <circle cx="12" cy="12" r="2"/>
+              </svg>
+              Maqsadlar
+            </a>
+          </li>
+
+          <li class="sidebar__item">
+            <a href="#" class="sidebar__link">
+              <!-- File text icon -->
+              <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+              Hisobotlar
+            </a>
+          </li>
+
+          <li class="sidebar__item">
+            <a href="#" class="sidebar__link">
+              <!-- File text icon -->
+                  <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2"
+                       stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 21C6 10 18 3 22 3c0 4-7 16-18 18"/>
+                    <path d="M6 21c0-5 4-9 10-11"/>
+                  </svg>
+              Sport ozuqalari
+            </a>
+          </li>
+
+
+
+          <li class="sidebar__item">
+            <a href="#" class="sidebar__link">
+              <!-- Bell icon -->
+              <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+              </svg>
+              Bildirishnomalar
+            </a>
+          </li>
+
+          <li class="sidebar__item">
+            <a href="profile.html" class="sidebar__link">
+              <!-- Settings icon -->
+              <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+              Sozlamalar
+            </a>
+          </li>
+
+          <li class="sidebar__item">
+            <a href="#" class="sidebar__link">
+              <!-- File text icon -->
+                <svg class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round">
+                
+                    <path d="M20 21a8 8 0 0 0-16 0"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+              Profil
+            </a>
+          </li>
+
+          <li class="sidebar__item">
+            <a href="#" class="sidebar__link">
+              <!-- File text icon -->
+                <svg class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round">
+                
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                    <polyline points="16 17 21 12 16 7"/>
+                    <line x1="21" y1="12" x2="9" y2="12"/>
+                </svg>
+              Logout
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="dash-main">
+
+      <!-- Greeting -->
+      <div class="dash-greeting">
+        <div class="dash-greeting__left">
+          <p class="dash-greeting__date">Iyun, Juma 12</p>
+          <h1 class="dash-greeting__title">Xayrli kun, Azizbek.</h1>
+          <p class="dash-greeting__sub">Tiklanish holatingiz a'lo darajada. Bugun kuch mashqlari bilan shug‘ullanish uchun eng qulay kun.</p>
+        </div>
+        <div class="dash-greeting__actions">
+          <button class="btn-outline">Mashg‘ulotni qayd etish</button>
+          <button class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+            Reja tuzish
+          </button>
+        </div>
+      </div>
+
+      <!-- Health Summary Card -->
+      <div class="dash-card">
+        <div class="dash-card__header">
+          <div>
+            <h2 class="dash-card__title">Sog‘liq haqida qisqacha ma’lumot</h2>
+            <p class="dash-card__sub">O‘tgan 7 kun davomida</p>
+          </div>
+          <a href="#" class="dash-card__link">
+            Hisobotni ko‘rish
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="health-metrics">
+          <div class="health-metric">
+            <span class="health-metric__label">Vazn</span>
+            <span class="health-metric__value">74.2 <sub>kg</sub></span>
+            <span class="health-metric__change health-metric__change--down">
+              ↘ 1.4 <em>Excellent</em>
+            </span>
+          </div>
+          <div class="health-metric">
+            <span class="health-metric__label">BMI</span>
+            <span class="health-metric__value">22.4</span>
+            <span class="health-metric__change health-metric__change--neutral">Normal</span>
+          </div>
+          <div class="health-metric">
+            <span class="health-metric__label">Yurak urishi</span>
+            <span class="health-metric__value">62 <sub>BPM</sub></span>
+            <span class="health-metric__change health-metric__change--down">
+              ↘ 3 <em>Optimal</em>
+            </span>
+          </div>
+          <div class="health-metric">
+            <span class="health-metric__label">Qon bosimi</span>
+            <span class="health-metric__value">118/76</span>
+            <span class="health-metric__change health-metric__change--neutral">Good</span>
+          </div>
+          <div class="health-metric">
+            <span class="health-metric__label">Uyqu</span>
+            <span class="health-metric__value">7h 42m</span>
+            <span class="health-metric__change health-metric__change--up">
+              ↗ 12% <em>Excellent</em>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activity Analytics Card (grafik keyinroq qo'shiladi) -->
+      <div class="dash-card">
+        <div class="dash-card__header">
+          <div>
+            <h2 class="dash-card__title">Faollik tahlili</h2>
+            <p class="dash-card__sub">Kuch · Cardio · minute</p>
+          </div>
+          <div class="dash-toggle-group">
+            <button class="dash-toggle dash-toggle--active">Haftalik</button>
+            <button class="dash-toggle">Oylik</button>
+          </div>
+        </div>
+        <!-- Chart placeholder — keyinroq Chart.js qo'shiladi -->
+        <div class="chart-placeholder">
+          <p>📊 Chart bu yerda ko'rinadi</p>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ========== RIGHT PANEL ========== -->
+    <aside class="dash-right-panel">
+      <div class="body-panel">
+        <div class="body-panel__header">
+          <h3 class="body-panel__title">Tana tuzilishi</h3>
+          <span class="body-panel__updated">2 kun oldin yangilangan</span>
+        </div>
+        <div class="body-panel__img-wrap">
+          <!-- O'z rasmingizni qo'ying: images/body-model.png -->
+          <img src="images/human.png" alt="Body model" class="body-panel__img" />
+        </div>
+      </div>
+    </aside>
+
+  </div><!-- /dash-layout -->
+</body>
 </html>
