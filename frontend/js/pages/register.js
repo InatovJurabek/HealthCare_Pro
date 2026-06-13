@@ -55,10 +55,10 @@ registerSubmitBtn.addEventListener("click", async (e) => {
     registerSubmitBtn.disabled = true;
     registerSubmitBtn.textContent = "Yuklanmoqda...";
 
-    const username = nameField.value.trim().replace(/\s+/g, "_").toLowerCase();
+    const fullName = nameField.value.trim().replace(/\s+/g, "_").toLowerCase();
 
     const result = await registerAPI({
-      username: username,
+      fullName: fullName,
       email: emailField.value.trim(),
       password: passwordField.value,
       password2: confirmField.value,
@@ -77,7 +77,7 @@ registerSubmitBtn.addEventListener("click", async (e) => {
     } else {
       const errors = result.data;
       if (errors?.email) emailError.textContent = errors.email[0];
-      if (errors?.username) nameError.textContent = errors.username[0];
+      if (errors?.fullName) nameError.textContent = errors.fullName[0];
       if (errors?.password) passwordError.textContent = errors.password[0];
 
       registerSubmitBtn.disabled = false;

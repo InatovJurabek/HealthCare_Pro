@@ -4,7 +4,7 @@ const loginSubmitBtn = document.querySelector(".login-page .confirm-btn");
 const loginEmailError = document.getElementById("login-email-error");
 const loginPasswordError = document.getElementById("login-password-error");
 
-const API_BASE = "http://127.0.0.1:8000/api";
+const API_BASE = "http://127.0.0.1:5000/api";
 let loginAttempts = 0;
 let lockUntil = 0;
 
