@@ -7,6 +7,10 @@ const connectDB = require("./config/db");
 
 dotenv.config();
 
+if (!process.env.JWT_SECRET) {
+  throw new Error("JWT_SECRET must be defined in .env");
+}
+
 const app = express();
 // Middleware
 app.use(cors());

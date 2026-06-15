@@ -3,6 +3,7 @@ const loginPassword = document.getElementById("login-password");
 const loginSubmitBtn = document.querySelector(".login-page .confirm-btn");
 const loginEmailError = document.getElementById("login-email-error");
 const loginPasswordError = document.getElementById("login-password-error");
+const logoutBtn = document.getElementById("logout-btn");
 
 const API_BASE = "http://127.0.0.1:5000/api";
 let loginAttempts = 0;
@@ -43,15 +44,15 @@ loginSubmitBtn.addEventListener("click", async (e) => {
     loginSubmitBtn.textContent = "Yuklanmoqda..";
 
     const result = await loginAPI({
-      login: loginEmail.value.trim(),
+      email: loginEmail.value.trim(),
       password: loginPassword.value,
     });
 
-    if (result.ok && result.data && result.data.access && result.data.refresh) {
-      saveTokens(result.data.access, result.data.refresh);
+    if (result.ok && result.data && result.data.token) {
+      saveTokens(result.data.token, null);
       loginSubmitBtn.textContent = "Muvaffaqiyatli";
       setTimeout(() => {
-        window.location.href = "/Frontend/dashboard.html";
+        window.location.href = "dashboard.html";
       }, 1000);
     } else if (result.status === 0) {
       loginPasswordError.textContent = "Internet aloqasi yo'q.";
@@ -85,3 +86,8 @@ loginSubmitBtn.addEventListener("click", async (e) => {
     }, 1000);
   }
 });
+
+
+logoutBtn.addEventListener("click", () =>{
+  
+})

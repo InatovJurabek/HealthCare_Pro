@@ -19,7 +19,7 @@ const register = async (req, res) => {
     const token = createToken(user._id);
 
     res.status(201).json({
-      success: tru,
+      success: true,
       token,
       user: {
         id: user._id,
@@ -37,7 +37,7 @@ const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    if (!imail || !password) {
+    if (!email || !password) {
       return res.status(400).json({ message: "Email va parol kiriting" });
     }
 

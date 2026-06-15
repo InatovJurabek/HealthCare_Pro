@@ -64,10 +64,10 @@ registerSubmitBtn.addEventListener("click", async (e) => {
       password2: confirmField.value,
     });
     if (result.ok) {
-      saveTokens(result.data.tokens.access, result.data.tokens.refresh);
+      saveTokens(result.data.token, null);
       registerSubmitBtn.textContent = "Muvaffaqiyatli!";
       setTimeout(() => {
-        window.location.href = "/dashboar.html";
+        window.location.href = "dashboard.html";
       }, 1000);
     } else if (result.status === 0) {
       //Internet yo'q
@@ -81,7 +81,7 @@ registerSubmitBtn.addEventListener("click", async (e) => {
       if (errors?.password) passwordError.textContent = errors.password[0];
 
       registerSubmitBtn.disabled = false;
-      registerSubmitBtntextContent = "Create account";
+      registerSubmitBtn.textContent = "Create account";
     }
   }
 });
