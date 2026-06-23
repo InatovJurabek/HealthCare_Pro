@@ -65,3 +65,34 @@ function validateEmail(email) {
 
   return "";
 }
+
+
+
+
+
+
+
+
+
+
+// const pageContent = document.querySelector("#page-content");
+
+// async function loadPage(page) {
+//   const response = await fetch(`views/${page}-view.html`);
+
+//   const html = await response.text();
+
+//   pageContent.innerHTML = html;
+// }
+
+// document.querySelectorAll(".sidebar__link").forEach((link) => {
+//   link.addEventListener("click", (e) => {
+//     e.preventDefault();
+
+//     const page = link.dataset.page;
+
+//     loadPage(page);
+//   });
+// });
+
+// loadPage("dashboard");

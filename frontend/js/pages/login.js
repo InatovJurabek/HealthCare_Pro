@@ -1,4 +1,3 @@
-// const { logout } = require("../../../backend/controllers/auth.controllers");
 const loginEmail = document.getElementById("login-email-field");
 const loginPassword = document.getElementById("login-password");
 const loginSubmitBtn = document.querySelector(".login-page .confirm-btn");

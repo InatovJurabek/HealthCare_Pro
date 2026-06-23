@@ -1,22 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard — HealthCare Pro</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/global.css" />
-    <link rel="stylesheet" href="css/dashboard.css" />
-    <script src="./js/api/api.js"></script>
-    <script src="./js/pages/login.js"></script>
-    
-  </head>
-  <body class="dash-body">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fitness Plans — HealthCare Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/global.css"/>
+  <link rel="stylesheet" href="css/dashboard.css"/>
+  <link rel="stylesheet" href="css/fitness.css"/>
+</head>
+<body class="dash-body">
+
+  <!-- HEADER -->
     <header class="dash-header">
       <a href="index.html" class="dash-header__logo">
         <div class="dash-header__logo-icon">
@@ -347,139 +344,165 @@
         </nav>
       </aside>
 
-      <!-- ========== MAIN CONTENT ========== -->
-      <main class="dash-main">
-        <!-- Greeting -->
-        <div class="dash-greeting">
-          <div class="dash-greeting__left">
-            <p class="dash-greeting__date">Iyun, Juma 12</p>
-            <h1 class="dash-greeting__title">Xayrli kun, Azizbek.</h1>
-            <p class="dash-greeting__sub">
-              Tiklanish holatingiz a'lo darajada. Bugun kuch mashqlari bilan
-              shug‘ullanish uchun eng qulay kun.
-            </p>
+    <!-- MAIN -->
+    <main class="dash-main">
+
+      <div class="page-header">
+        <div>
+          <h1 class="page-header__title">Fitness Plans</h1>
+          <p class="page-header__sub">Adaptive workouts tuned to your recovery and goals.</p>
+        </div>
+        <button class="btn-primary" id="generatePlanBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Generate plan
+        </button>
+      </div>
+
+      <!-- Active plan banner -->
+      <div class="active-plan-banner">
+        <div class="active-plan-banner__left">
+          <span class="tag-label">Active plan</span>
+          <h2 class="active-plan-banner__title">Beginner Strength Builder · Week 3 of 8</h2>
+          <p class="active-plan-banner__sub">3 strength sessions + 2 cardio sessions per week</p>
+        </div>
+        <div class="active-plan-banner__progress">
+          <div class="active-plan-banner__bar">
+            <div class="active-plan-banner__fill" style="width: 37%"></div>
           </div>
-          <div class="dash-greeting__actions">
-            <button class="btn-outline">Mashg‘ulotni qayd etish</button>
-            <button class="btn-primary">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-              </svg>
-              Reja tuzish
-            </button>
+          <span class="active-plan-banner__pct">37% complete</span>
+        </div>
+      </div>
+
+      <!-- This week schedule -->
+      <div class="dash-card">
+        <div class="dash-card__header">
+          <div>
+            <h2 class="dash-card__title">This week's schedule</h2>
+            <p class="dash-card__sub">Jun 2 – Jun 8, 2025</p>
+          </div>
+          <button class="btn-outline btn--sm">Log workout</button>
+        </div>
+        <div class="week-schedule">
+          <div class="week-day week-day--done">
+            <p class="week-day__name">Mon</p>
+            <div class="week-day__dot week-day__dot--done"></div>
+            <p class="week-day__label">Upper body</p>
+          </div>
+          <div class="week-day week-day--done">
+            <p class="week-day__name">Tue</p>
+            <div class="week-day__dot week-day__dot--rest"></div>
+            <p class="week-day__label">Rest</p>
+          </div>
+          <div class="week-day week-day--done">
+            <p class="week-day__name">Wed</p>
+            <div class="week-day__dot week-day__dot--done"></div>
+            <p class="week-day__label">Lower body</p>
+          </div>
+          <div class="week-day week-day--done">
+            <p class="week-day__name">Thu</p>
+            <div class="week-day__dot week-day__dot--done"></div>
+            <p class="week-day__label">Cardio</p>
+          </div>
+          <div class="week-day week-day--today">
+            <p class="week-day__name">Fri</p>
+            <div class="week-day__dot week-day__dot--today"></div>
+            <p class="week-day__label">Full body</p>
+          </div>
+          <div class="week-day">
+            <p class="week-day__name">Sat</p>
+            <div class="week-day__dot week-day__dot--rest"></div>
+            <p class="week-day__label">Rest</p>
+          </div>
+          <div class="week-day">
+            <p class="week-day__name">Sun</p>
+            <div class="week-day__dot week-day__dot--upcoming"></div>
+            <p class="week-day__label">Cardio</p>
           </div>
         </div>
+      </div>
 
-        <!-- Health Summary Card -->
-        <div class="dash-card">
-          <div class="dash-card__header">
-            <div>
-              <h2 class="dash-card__title">Sog‘liq haqida qisqacha ma’lumot</h2>
-              <p class="dash-card__sub">O‘tgan 7 kun davomida</p>
-            </div>
-            <a href="#" class="dash-card__link">
-              Hisobotni ko‘rish
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </a>
+      <!-- Today's workout detail -->
+      <div class="dash-card">
+        <div class="dash-card__header">
+          <div>
+            <h2 class="dash-card__title">Today · Full body strength</h2>
+            <p class="dash-card__sub">Est. 55 min · Intermediate</p>
           </div>
-
-          <div class="health-metrics">
-            <div class="health-metric">
-              <span class="health-metric__label">Vazn</span>
-              <span class="health-metric__value">74.2 <sub>kg</sub></span>
-              <span class="health-metric__change health-metric__change--down">
-                ↘ 1.4 <em>Excellent</em>
-              </span>
+          <button class="btn-primary">Start workout</button>
+        </div>
+        <div class="exercise-list">
+          <div class="exercise-item">
+            <div class="exercise-item__num">1</div>
+            <div class="exercise-item__info">
+              <p class="exercise-item__name">Barbell Squat</p>
+              <p class="exercise-item__detail">4 sets × 8 reps · 60 kg</p>
             </div>
-            <div class="health-metric">
-              <span class="health-metric__label">BMI</span>
-              <span class="health-metric__value">22.4</span>
-              <span class="health-metric__change health-metric__change--neutral"
-                >Normal</span
-              >
+            <span class="exercise-item__muscle">Legs</span>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-item__num">2</div>
+            <div class="exercise-item__info">
+              <p class="exercise-item__name">Bench Press</p>
+              <p class="exercise-item__detail">3 sets × 10 reps · 50 kg</p>
             </div>
-            <div class="health-metric">
-              <span class="health-metric__label">Yurak urishi</span>
-              <span class="health-metric__value">62 <sub>BPM</sub></span>
-              <span class="health-metric__change health-metric__change--down">
-                ↘ 3 <em>Optimal</em>
-              </span>
+            <span class="exercise-item__muscle">Chest</span>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-item__num">3</div>
+            <div class="exercise-item__info">
+              <p class="exercise-item__name">Deadlift</p>
+              <p class="exercise-item__detail">3 sets × 6 reps · 80 kg</p>
             </div>
-            <div class="health-metric">
-              <span class="health-metric__label">Qon bosimi</span>
-              <span class="health-metric__value">118/76</span>
-              <span class="health-metric__change health-metric__change--neutral"
-                >Good</span
-              >
+            <span class="exercise-item__muscle">Back</span>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-item__num">4</div>
+            <div class="exercise-item__info">
+              <p class="exercise-item__name">Pull-ups</p>
+              <p class="exercise-item__detail">3 sets × max reps</p>
             </div>
-            <div class="health-metric">
-              <span class="health-metric__label">Uyqu</span>
-              <span class="health-metric__value">7h 42m</span>
-              <span class="health-metric__change health-metric__change--up">
-                ↗ 12% <em>Excellent</em>
-              </span>
+            <span class="exercise-item__muscle">Back</span>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-item__num">5</div>
+            <div class="exercise-item__info">
+              <p class="exercise-item__name">Plank</p>
+              <p class="exercise-item__detail">3 sets × 60 sec</p>
             </div>
+            <span class="exercise-item__muscle">Core</span>
           </div>
         </div>
+      </div>
 
-        <!-- Activity Analytics Card (grafik keyinroq qo'shiladi) -->
-        <div class="dash-card">
-          <div class="dash-card__header">
-            <div>
-              <h2 class="dash-card__title">Faollik tahlili</h2>
-              <p class="dash-card__sub">Kuch · Cardio · minute</p>
-            </div>
-            <div class="dash-toggle-group">
-              <button class="dash-toggle dash-toggle--active">Haftalik</button>
-              <button class="dash-toggle">Oylik</button>
-            </div>
-          </div>
-          <!-- Chart placeholder — keyinroq Chart.js qo'shiladi -->
-          <div class="chart-placeholder">
-            <p>📊 Chart bu yerda ko'rinadi</p>
+      <!-- Available plans -->
+      <div class="dash-card">
+        <div class="dash-card__header">
+          <div>
+            <h2 class="dash-card__title">Available plans</h2>
+            <p class="dash-card__sub">Based on your profile</p>
           </div>
         </div>
-      </main>
-
-      <!-- ========== RIGHT PANEL ========== -->
-      <aside class="dash-right-panel">
-        <div class="body-panel">
-          <div class="body-panel__header">
-            <h3 class="body-panel__title">Tana tuzilishi</h3>
-            <span class="body-panel__updated">2 kun oldin yangilangan</span>
+        <div class="plans-grid">
+          <div class="plan-card plan-card--active">
+            <p class="plan-card__badge">Current</p>
+            <p class="plan-card__name">Beginner Strength Builder</p>
+            <p class="plan-card__meta">8 weeks · 5 days/week</p>
           </div>
-          <div class="body-panel__img-wrap">
-            <!-- O'z rasmingizni qo'ying: images/body-model.png -->
-            <img
-              src="images/human.png"
-              alt="Body model"
-              class="body-panel__img"
-            />
+          <div class="plan-card">
+            <p class="plan-card__name">Fat Loss Accelerator</p>
+            <p class="plan-card__meta">6 weeks · 4 days/week</p>
+          </div>
+          <div class="plan-card">
+            <p class="plan-card__name">Cardio Endurance</p>
+            <p class="plan-card__meta">4 weeks · 3 days/week</p>
           </div>
         </div>
-      </aside>
-    </div>
-    <script src="./js/pages/logout.js"></script>
-  </body>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="js/pages/main.js"></script>
+  <script src="js/pages/fitness.js"></script>
+</body>
 </html>

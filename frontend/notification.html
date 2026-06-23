@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard — HealthCare Pro</title>
+    <title>Notifications — HealthCare Pro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,9 +12,7 @@
     />
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/dashboard.css" />
-    <script src="./js/api/api.js"></script>
-    <script src="./js/pages/login.js"></script>
-    
+    <link rel="stylesheet" href="css/notification.css" />
   </head>
   <body class="dash-body">
     <header class="dash-header">
@@ -347,50 +345,38 @@
         </nav>
       </aside>
 
-      <!-- ========== MAIN CONTENT ========== -->
+      <!-- MAIN -->
       <main class="dash-main">
-        <!-- Greeting -->
-        <div class="dash-greeting">
-          <div class="dash-greeting__left">
-            <p class="dash-greeting__date">Iyun, Juma 12</p>
-            <h1 class="dash-greeting__title">Xayrli kun, Azizbek.</h1>
-            <p class="dash-greeting__sub">
-              Tiklanish holatingiz a'lo darajada. Bugun kuch mashqlari bilan
-              shug‘ullanish uchun eng qulay kun.
-            </p>
+        <div class="page-header">
+          <div>
+            <h1 class="page-header__title">Notifications</h1>
+            <p class="page-header__sub">3 unread alerts</p>
           </div>
-          <div class="dash-greeting__actions">
-            <button class="btn-outline">Mashg‘ulotni qayd etish</button>
-            <button class="btn-primary">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-              </svg>
-              Reja tuzish
-            </button>
-          </div>
+          <button class="btn-outline" id="markAllReadBtn">
+            Mark all as read
+          </button>
         </div>
 
-        <!-- Health Summary Card -->
-        <div class="dash-card">
-          <div class="dash-card__header">
-            <div>
-              <h2 class="dash-card__title">Sog‘liq haqida qisqacha ma’lumot</h2>
-              <p class="dash-card__sub">O‘tgan 7 kun davomida</p>
-            </div>
-            <a href="#" class="dash-card__link">
-              Hisobotni ko‘rish
+        <!-- Filter tabs -->
+        <div class="notif-tabs">
+          <button class="notif-tab notif-tab--active" data-filter="all">
+            All
+          </button>
+          <button class="notif-tab" data-filter="alert">Alerts</button>
+          <button class="notif-tab" data-filter="reminder">Reminders</button>
+          <button class="notif-tab" data-filter="achievement">
+            Achievements
+          </button>
+        </div>
+
+        <!-- Notifications list -->
+        <div class="notif-list" id="notifList">
+          <!-- Unread -->
+          <div class="notif-item notif-item--unread" data-type="alert">
+            <div class="notif-item__icon notif-item__icon--alert">
               <svg
-                width="14"
-                height="14"
+                width="18"
+                height="18"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -398,88 +384,195 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
               </svg>
-            </a>
+            </div>
+            <div class="notif-item__body">
+              <p class="notif-item__title">Resting heart rate elevated</p>
+              <p class="notif-item__desc">
+                Your resting heart rate was 78 BPM this morning — slightly above
+                your optimal range. Consider a recovery session today.
+              </p>
+              <p class="notif-item__time">Today, 8:14 AM</p>
+            </div>
+            <div class="notif-item__actions">
+              <span class="notif-dot"></span>
+              <button class="notif-dismiss" aria-label="Dismiss">×</button>
+            </div>
           </div>
 
-          <div class="health-metrics">
-            <div class="health-metric">
-              <span class="health-metric__label">Vazn</span>
-              <span class="health-metric__value">74.2 <sub>kg</sub></span>
-              <span class="health-metric__change health-metric__change--down">
-                ↘ 1.4 <em>Excellent</em>
-              </span>
-            </div>
-            <div class="health-metric">
-              <span class="health-metric__label">BMI</span>
-              <span class="health-metric__value">22.4</span>
-              <span class="health-metric__change health-metric__change--neutral"
-                >Normal</span
+          <div class="notif-item notif-item--unread" data-type="reminder">
+            <div class="notif-item__icon notif-item__icon--reminder">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
             </div>
-            <div class="health-metric">
-              <span class="health-metric__label">Yurak urishi</span>
-              <span class="health-metric__value">62 <sub>BPM</sub></span>
-              <span class="health-metric__change health-metric__change--down">
-                ↘ 3 <em>Optimal</em>
-              </span>
+            <div class="notif-item__body">
+              <p class="notif-item__title">Workout reminder</p>
+              <p class="notif-item__desc">
+                You have a Full body strength session scheduled for today. Tap
+                to view details.
+              </p>
+              <p class="notif-item__time">Today, 7:00 AM</p>
             </div>
-            <div class="health-metric">
-              <span class="health-metric__label">Qon bosimi</span>
-              <span class="health-metric__value">118/76</span>
-              <span class="health-metric__change health-metric__change--neutral"
-                >Good</span
+            <div class="notif-item__actions">
+              <span class="notif-dot"></span>
+              <button class="notif-dismiss" aria-label="Dismiss">×</button>
+            </div>
+          </div>
+
+          <div class="notif-item notif-item--unread" data-type="achievement">
+            <div class="notif-item__icon notif-item__icon--achievement">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
+                <circle cx="12" cy="8" r="6" />
+                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
+              </svg>
             </div>
-            <div class="health-metric">
-              <span class="health-metric__label">Uyqu</span>
-              <span class="health-metric__value">7h 42m</span>
-              <span class="health-metric__change health-metric__change--up">
-                ↗ 12% <em>Excellent</em>
-              </span>
+            <div class="notif-item__body">
+              <p class="notif-item__title">🏆 10-day streak achieved!</p>
+              <p class="notif-item__desc">
+                You've logged your activity for 10 consecutive days. Keep it up!
+              </p>
+              <p class="notif-item__time">Yesterday, 11:59 PM</p>
+            </div>
+            <div class="notif-item__actions">
+              <span class="notif-dot"></span>
+              <button class="notif-dismiss" aria-label="Dismiss">×</button>
+            </div>
+          </div>
+
+          <!-- Read -->
+          <div class="notif-item" data-type="reminder">
+            <div class="notif-item__icon notif-item__icon--reminder">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+            </div>
+            <div class="notif-item__body">
+              <p class="notif-item__title">Sleep goal reminder</p>
+              <p class="notif-item__desc">
+                You went to bed 45 minutes later than your target last night.
+              </p>
+              <p class="notif-item__time">Yesterday, 6:30 AM</p>
+            </div>
+            <div class="notif-item__actions">
+              <button class="notif-dismiss" aria-label="Dismiss">×</button>
+            </div>
+          </div>
+
+          <div class="notif-item" data-type="alert">
+            <div class="notif-item__icon notif-item__icon--alert">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+            </div>
+            <div class="notif-item__body">
+              <p class="notif-item__title">Weekly report ready</p>
+              <p class="notif-item__desc">
+                Your weekly health report for Jun 2–8 is now available.
+              </p>
+              <p class="notif-item__time">Jun 8, 9:00 AM</p>
+            </div>
+            <div class="notif-item__actions">
+              <button class="notif-dismiss" aria-label="Dismiss">×</button>
+            </div>
+          </div>
+
+          <div class="notif-item" data-type="achievement">
+            <div class="notif-item__icon notif-item__icon--achievement">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="8" r="6" />
+                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
+              </svg>
+            </div>
+            <div class="notif-item__body">
+              <p class="notif-item__title">Goal completed: Run 5 km</p>
+              <p class="notif-item__desc">
+                You successfully completed your Run 5 km goal. Set a new
+                challenge!
+              </p>
+              <p class="notif-item__time">Jun 1, 4:22 PM</p>
+            </div>
+            <div class="notif-item__actions">
+              <button class="notif-dismiss" aria-label="Dismiss">×</button>
             </div>
           </div>
         </div>
 
-        <!-- Activity Analytics Card (grafik keyinroq qo'shiladi) -->
-        <div class="dash-card">
-          <div class="dash-card__header">
-            <div>
-              <h2 class="dash-card__title">Faollik tahlili</h2>
-              <p class="dash-card__sub">Kuch · Cardio · minute</p>
-            </div>
-            <div class="dash-toggle-group">
-              <button class="dash-toggle dash-toggle--active">Haftalik</button>
-              <button class="dash-toggle">Oylik</button>
-            </div>
-          </div>
-          <!-- Chart placeholder — keyinroq Chart.js qo'shiladi -->
-          <div class="chart-placeholder">
-            <p>📊 Chart bu yerda ko'rinadi</p>
-          </div>
+        <!-- Settings hint -->
+        <div class="notif-settings-hint">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l-.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
+            />
+          </svg>
+          Manage notification preferences in <a href="profile.html">Settings</a>
         </div>
       </main>
-
-      <!-- ========== RIGHT PANEL ========== -->
-      <aside class="dash-right-panel">
-        <div class="body-panel">
-          <div class="body-panel__header">
-            <h3 class="body-panel__title">Tana tuzilishi</h3>
-            <span class="body-panel__updated">2 kun oldin yangilangan</span>
-          </div>
-          <div class="body-panel__img-wrap">
-            <!-- O'z rasmingizni qo'ying: images/body-model.png -->
-            <img
-              src="images/human.png"
-              alt="Body model"
-              class="body-panel__img"
-            />
-          </div>
-        </div>
-      </aside>
     </div>
-    <script src="./js/pages/logout.js"></script>
+
+    <script src="js/pages/main.js"></script>
+    <script src="js/pages/notification.js"></script>
   </body>
 </html>
