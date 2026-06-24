@@ -1,11 +1,574 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Health Overview — HealthCare Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/global.css"/>
+  <link rel="stylesheet" href="css/dashboard.css"/>
+  <link rel="stylesheet" href="css/health_overview.css"/>
 </head>
-<body>
-    
+<body class="dash-body">
+
+  <!-- HEADER -->
+    <header class="dash-header">
+      <a href="index.html" class="dash-header__logo">
+        <div class="dash-header__logo-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="2 12 6 12 8 5 10 19 12 12 14 15 16 12 22 12" />
+          </svg>
+        </div>
+        HealthCare <strong>Pro</strong>
+      </a>
+
+      <!-- Search -->
+      <div class="dash-header__search">
+        <svg
+          class="dash-header__search-icon"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input
+          type="search"
+          class="dash-header__search-input"
+          placeholder="Search..."
+        />
+      </div>
+
+      <!-- Right side -->
+      <div class="dash-header__right">
+        <!-- Bell icon -->
+        <button class="dash-header__icon-btn" aria-label="Notifications">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+          </svg>
+          <span class="dash-header__badge"></span>
+        </button>
+
+        <!-- User -->
+        <div class="dash-header__user">
+          <div class="dash-header__avatar">AI</div>
+          <div class="dash-header__user-info">
+            <span class="dash-header__user-name">Azizbek Inatov</span>
+            <span class="dash-header__user-meta">Standart plan · Beginner</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== LAYOUT WRAPPER ========== -->
+    <div class="dash-layout">
+      <!-- ========== SIDEBAR ========== -->
+      <aside class="sidebar">
+        <nav class="sidebar__nav">
+          <ul class="sidebar__list">
+            <li class="sidebar__item sidebar__item--active">
+              <a href="./dashboard.html" class="sidebar__link">
+                <!-- Grid / Dashboard icon -->
+                <svg
+                  class="sidebar__icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Dashboard
+              </a>
+            </li>
+
+            <li class="sidebar__item">
+              <a href="./health_overview.html" class="sidebar__link">
+                <!-- Heart icon -->
+                <svg
+                  class="sidebar__icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+                Sog'liq ko'rsatkichlari
+              </a>
+            </li>
+
+            <li class="sidebar__item">
+              <a href="./fitness.html" class="sidebar__link">
+                <!-- Dumbbell / activity icon -->
+                <svg
+                  class="sidebar__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 9v6" />
+                  <path d="M8 7v10" />
+                  <path d="M16 7v10" />
+                  <path d="M19 9v6" />
+                  <path d="M8 12h8" />
+
+                  <path d="M3 10v4" />
+                  <path d="M21 10v4" />
+                </svg>
+                Fitness Rejalari
+              </a>
+            </li>
+
+            <li class="sidebar__item">
+              <a href="./progress.html" class="sidebar__link">
+                <!-- Trending up icon -->
+                <svg
+                  class="sidebar__icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                  <polyline points="17 6 23 6 23 12" />
+                </svg>
+                Jarayon
+              </a>
+            </li>
+
+            <li class="sidebar__item">
+              <a href="./goals.html" class="sidebar__link">
+                <!-- Target icon -->
+                <svg
+                  class="sidebar__icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="6" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg>
+                Maqsadlar
+              </a>
+            </li>
+
+            <li class="sidebar__item" id="nav-reports">
+              <a href="./report.html" class="sidebar__link">
+                <svg
+                  class="sidebar__icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" /></svg>
+                Hisobotlar</a>
+            </li>
+
+            <li class="sidebar__item">
+              <a href="./family.html" class="sidebar__link">
+                <!-- File text icon -->
+                <svg
+                  class="sidebar__icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <!-- Katta odam -->
+                  <circle cx="9" cy="8" r="3" />
+                  <path d="M4 20c0-3 2.5-5 5-5s5 2 5 5" />
+
+                  <!-- Kichik odam -->
+                  <circle cx="17" cy="10" r="2" />
+                  <path d="M14 20c0-2 1.5-4 3-4s3 2 3 4" />
+                </svg>
+                Oilaviy ko'rsatgichlar
+              </a>
+            </li>
+
+            <li class="sidebar__item">
+              <a href="#" class="sidebar__link">
+                <!-- File text icon -->
+                <svg
+                  class="sidebar__icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M6 21C6 10 18 3 22 3c0 4-7 16-18 18" />
+                  <path d="M6 21c0-5 4-9 10-11" />
+                </svg>
+                Sport ozuqalari
+              </a>
+            </li>
+
+            <li class="sidebar__item">
+              <a href="./notification.html" class="sidebar__link">
+                <!-- Bell icon -->
+                <svg
+                  class="sidebar__icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                  <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                </svg>
+                Bildirishnomalar
+              </a>
+            </li>
+
+            <li class="sidebar__item">
+              <a href="./settings.html" class="sidebar__link">
+                <!-- Settings icon -->
+                <svg
+                  class="sidebar__icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="3" />
+                  <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
+                  />
+                </svg>
+                Sozlamalar
+              </a>
+            </li>
+
+            <li class="sidebar__item">
+              <a href="./profile.html" class="sidebar__link">
+                <!-- File text icon -->
+                <svg
+                  class="sidebar__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 21a8 8 0 0 0-16 0" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                Profil
+              </a>
+            </li>
+
+            <li class="sidebar__item" id="logout-btn">
+              <a href="" class="sidebar__link">
+                <!-- File text icon -->
+                <svg
+                  class="sidebar__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                  <polyline points="16 17 21 12 16 7" />
+                  <line x1="21" y1="12" x2="9" y2="12" />
+                </svg>
+                Logout
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    <!-- MAIN -->
+    <main class="dash-main">
+
+      <!-- Page title -->
+      <div class="ho-header">
+        <p class="ho-header__eyebrow">HEALTH OVERVIEW</p>
+        <h1 class="ho-header__title">Vitals &amp; recovery</h1>
+        <p class="ho-header__sub">Long-term monitoring of your core biomarkers.</p>
+        <!-- Period tabs -->
+        <div class="ho-period-tabs">
+          <button class="ho-tab" data-period="daily">Daily</button>
+          <button class="ho-tab ho-tab--active" data-period="weekly">Weekly</button>
+          <button class="ho-tab" data-period="monthly">Monthly</button>
+        </div>
+      </div>
+
+      <!-- Charts row -->
+      <div class="ho-charts-row">
+        <!-- Sleep hours chart card -->
+        <div class="ho-chart-card">
+          <div class="ho-chart-card__header">
+            <div class="ho-chart-card__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div>
+              <p class="ho-chart-card__title">Sleep Hours</p>
+              <p class="ho-chart-card__sub">Avg 7.6h / night</p>
+            </div>
+          </div>
+          <!-- SVG chart — simplified line chart -->
+          <div class="ho-chart-wrap">
+            <svg class="ho-svg-chart" viewBox="0 0 500 160" preserveAspectRatio="none">
+              <!-- Y axis labels -->
+              <text x="0" y="18" class="chart-label">10</text>
+              <text x="0" y="80" class="chart-label">7</text>
+              <text x="0" y="148" class="chart-label">5</text>
+              <!-- Dashed guide lines -->
+              <line x1="30" y1="16" x2="500" y2="16" class="chart-guide"/>
+              <line x1="30" y1="78" x2="500" y2="78" class="chart-guide"/>
+              <line x1="30" y1="146" x2="500" y2="146" class="chart-guide"/>
+              <!-- Line path: Mon=7.0, Tue=6.8, Wed=7.4, Thu=8.0, Fri=7.2, Sat=8.2, Sun=8.5 -->
+              <polyline class="chart-line chart-line--blue"
+                points="50,78 117,87 183,63 250,40 317,70 383,33 450,24"/>
+              <!-- Dots -->
+              <circle cx="50"  cy="78" r="5" class="chart-dot chart-dot--blue"/>
+              <circle cx="117" cy="87" r="5" class="chart-dot chart-dot--blue"/>
+              <circle cx="183" cy="63" r="5" class="chart-dot chart-dot--blue"/>
+              <circle cx="250" cy="40" r="5" class="chart-dot chart-dot--blue"/>
+              <circle cx="317" cy="70" r="5" class="chart-dot chart-dot--blue"/>
+              <circle cx="383" cy="33" r="5" class="chart-dot chart-dot--blue"/>
+              <circle cx="450" cy="24" r="5" class="chart-dot chart-dot--blue"/>
+              <!-- X labels -->
+              <text x="44"  y="158" class="chart-label">Mon</text>
+              <text x="111" y="158" class="chart-label">Tue</text>
+              <text x="177" y="158" class="chart-label">Wed</text>
+              <text x="244" y="158" class="chart-label">Thu</text>
+              <text x="311" y="158" class="chart-label">Fri</text>
+              <text x="377" y="158" class="chart-label">Sat</text>
+              <text x="444" y="158" class="chart-label">Sun</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Blood Pressure chart card -->
+        <div class="ho-chart-card">
+          <div class="ho-chart-card__header">
+            <div class="ho-chart-card__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div>
+              <p class="ho-chart-card__title">Blood Pressure (14 days)</p>
+              <p class="ho-chart-card__sub">Systolic / Diastolic</p>
+            </div>
+          </div>
+          <div class="ho-chart-wrap">
+            <svg class="ho-svg-chart" viewBox="0 0 560 160" preserveAspectRatio="none">
+              <!-- Y labels -->
+              <text x="0" y="16" class="chart-label">140</text>
+              <text x="0" y="62" class="chart-label">105</text>
+              <text x="0" y="108" class="chart-label">70</text>
+              <text x="0" y="148" class="chart-label">35</text>
+              <!-- Guide lines -->
+              <line x1="36" y1="14" x2="560" y2="14" class="chart-guide"/>
+              <line x1="36" y1="60" x2="560" y2="60" class="chart-guide"/>
+              <line x1="36" y1="106" x2="560" y2="106" class="chart-guide"/>
+              <!-- Systolic line (teal ~125-130) -->
+              <polyline class="chart-line chart-line--teal"
+                points="50,28 88,25 126,30 163,26 200,28 238,24 276,27 313,25 350,29 388,26 425,27 463,24 500,28 537,26"/>
+              <!-- Diastolic line (blue ~75-80) -->
+              <polyline class="chart-line chart-line--blue"
+                points="50,98 88,100 126,95 163,99 200,97 238,101 276,98 313,100 350,96 388,99 425,97 463,101 500,98 537,100"/>
+              <!-- X labels D1–D14 -->
+              <text x="46"  y="158" class="chart-label" font-size="8">D1</text>
+              <text x="84"  y="158" class="chart-label" font-size="8">D2</text>
+              <text x="122" y="158" class="chart-label" font-size="8">D3</text>
+              <text x="159" y="158" class="chart-label" font-size="8">D4</text>
+              <text x="196" y="158" class="chart-label" font-size="8">D5</text>
+              <text x="234" y="158" class="chart-label" font-size="8">D6</text>
+              <text x="272" y="158" class="chart-label" font-size="8">D7</text>
+              <text x="309" y="158" class="chart-label" font-size="8">D8</text>
+              <text x="346" y="158" class="chart-label" font-size="8">D9</text>
+              <text x="383" y="158" class="chart-label" font-size="8">D10</text>
+              <text x="420" y="158" class="chart-label" font-size="8">D11</text>
+              <text x="458" y="158" class="chart-label" font-size="8">D12</text>
+              <text x="496" y="158" class="chart-label" font-size="8">D13</text>
+              <text x="533" y="158" class="chart-label" font-size="8">D14</text>
+              <!-- Legend -->
+              <line x1="40" y1="172" x2="60" y2="172" stroke="#0f9b8e" stroke-width="2"/>
+              <text x="65" y="176" class="chart-label">Systolic</text>
+              <line x1="130" y1="172" x2="150" y2="172" stroke="#6366f1" stroke-width="2"/>
+              <text x="155" y="176" class="chart-label">Diastolic</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Heart rate + HRV mini charts row -->
+      <div class="ho-charts-row">
+        <div class="ho-chart-card">
+          <div class="ho-chart-card__header">
+            <div class="ho-chart-card__icon ho-chart-card__icon--orange">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div>
+              <p class="ho-chart-card__title">Resting Heart Rate</p>
+              <p class="ho-chart-card__sub">7-day trend</p>
+            </div>
+            <span class="ho-stat-pill ho-stat-pill--good">62 BPM</span>
+          </div>
+          <div class="ho-chart-wrap">
+            <svg class="ho-svg-chart" viewBox="0 0 500 100" preserveAspectRatio="none">
+              <polyline class="chart-line chart-line--orange"
+                points="40,70 110,65 180,72 250,60 320,55 390,58 460,52"/>
+              <circle cx="40"  cy="70" r="4" class="chart-dot chart-dot--orange"/>
+              <circle cx="110" cy="65" r="4" class="chart-dot chart-dot--orange"/>
+              <circle cx="180" cy="72" r="4" class="chart-dot chart-dot--orange"/>
+              <circle cx="250" cy="60" r="4" class="chart-dot chart-dot--orange"/>
+              <circle cx="320" cy="55" r="4" class="chart-dot chart-dot--orange"/>
+              <circle cx="390" cy="58" r="4" class="chart-dot chart-dot--orange"/>
+              <circle cx="460" cy="52" r="4" class="chart-dot chart-dot--orange"/>
+              <text x="33"  y="92" class="chart-label">Mon</text>
+              <text x="101" y="92" class="chart-label">Tue</text>
+              <text x="171" y="92" class="chart-label">Wed</text>
+              <text x="241" y="92" class="chart-label">Thu</text>
+              <text x="311" y="92" class="chart-label">Fri</text>
+              <text x="381" y="92" class="chart-label">Sat</text>
+              <text x="451" y="92" class="chart-label">Sun</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="ho-chart-card">
+          <div class="ho-chart-card__header">
+            <div class="ho-chart-card__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </div>
+            <div>
+              <p class="ho-chart-card__title">HRV (Heart Rate Variability)</p>
+              <p class="ho-chart-card__sub">ms — higher is better</p>
+            </div>
+            <span class="ho-stat-pill ho-stat-pill--good">+12ms</span>
+          </div>
+          <div class="ho-chart-wrap">
+            <svg class="ho-svg-chart" viewBox="0 0 500 100" preserveAspectRatio="none">
+              <polyline class="chart-line chart-line--teal"
+                points="40,70 110,60 180,65 250,45 320,50 390,38 460,32"/>
+              <circle cx="40"  cy="70" r="4" class="chart-dot chart-dot--teal"/>
+              <circle cx="110" cy="60" r="4" class="chart-dot chart-dot--teal"/>
+              <circle cx="180" cy="65" r="4" class="chart-dot chart-dot--teal"/>
+              <circle cx="250" cy="45" r="4" class="chart-dot chart-dot--teal"/>
+              <circle cx="320" cy="50" r="4" class="chart-dot chart-dot--teal"/>
+              <circle cx="390" cy="38" r="4" class="chart-dot chart-dot--teal"/>
+              <circle cx="460" cy="32" r="4" class="chart-dot chart-dot--teal"/>
+              <text x="33"  y="92" class="chart-label">Mon</text>
+              <text x="101" y="92" class="chart-label">Tue</text>
+              <text x="171" y="92" class="chart-label">Wed</text>
+              <text x="241" y="92" class="chart-label">Thu</text>
+              <text x="311" y="92" class="chart-label">Fri</text>
+              <text x="381" y="92" class="chart-label">Sat</text>
+              <text x="451" y="92" class="chart-label">Sun</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Insight cards -->
+      <div class="ho-insights">
+        <div class="ho-insight ho-insight--green">
+          <div class="ho-insight__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="ho-insight__body">
+            <p class="ho-insight__title">Cardio fitness improving</p>
+            <p class="ho-insight__desc">Resting heart rate is down 3 bpm vs last month — a strong indicator of aerobic adaptation.</p>
+          </div>
+          <button class="ho-insight__btn">View details</button>
+        </div>
+
+        <div class="ho-insight ho-insight--orange">
+          <div class="ho-insight__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div class="ho-insight__body">
+            <p class="ho-insight__title">Hydration below baseline</p>
+            <p class="ho-insight__desc">Average daily intake (2.3 L) is 23% short of your 3 L target. Add a glass after each meal.</p>
+          </div>
+          <button class="ho-insight__btn">View details</button>
+        </div>
+
+        <div class="ho-insight ho-insight--blue">
+          <div class="ho-insight__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="ho-insight__body">
+            <p class="ho-insight__title">Sleep window opportunity</p>
+            <p class="ho-insight__desc">Going to bed 25 min earlier could lift your sleep score from 86 to ~92.</p>
+          </div>
+          <button class="ho-insight__btn">View details</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="js/pages/main.js"></script>
+  <script src="js/pages/health_overview.js"></script>
 </body>
 </html>

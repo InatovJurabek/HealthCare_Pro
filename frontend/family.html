@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fitness Plans — HealthCare Pro</title>
+  <title>Family — HealthCare Pro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/global.css"/>
   <link rel="stylesheet" href="css/dashboard.css"/>
-  <link rel="stylesheet" href="css/fitness.css"/>
+  <link rel="stylesheet" href="css/family.css"/>
 </head>
 <body class="dash-body">
 
   <!-- HEADER -->
-    <header class="dash-header">
+      <header class="dash-header">
       <a href="index.html" class="dash-header__logo">
         <div class="dash-header__logo-icon">
           <svg
@@ -347,154 +347,207 @@
     <!-- MAIN -->
     <main class="dash-main">
 
+      <!-- Header -->
       <div class="page-header">
         <div>
-          <h1 class="page-header__title">Fitness Plans</h1>
-          <p class="page-header__sub">Adaptive workouts tuned to your recovery and goals.</p>
+          <h1 class="page-header__title">Family</h1>
+          <p class="page-header__sub">Monitor your family's health together.</p>
         </div>
-        <button class="btn-primary" id="generatePlanBtn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          Generate plan
+        <button class="btn-primary" id="inviteBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Invite member
         </button>
       </div>
 
-      <!-- Active plan banner -->
-      <div class="active-plan-banner">
-        <div class="active-plan-banner__left">
-          <span class="tag-label">Active plan</span>
-          <h2 class="active-plan-banner__title">Beginner Strength Builder · Week 3 of 8</h2>
-          <p class="active-plan-banner__sub">3 strength sessions + 2 cardio sessions per week</p>
+      <!-- Family members row -->
+      <div class="family-members-strip">
+        <!-- You (active) -->
+        <div class="family-avatar-btn family-avatar-btn--active" data-member="alex">
+          <div class="family-avatar family-avatar--you">AM</div>
+          <p class="family-avatar-btn__name">You</p>
         </div>
-        <div class="active-plan-banner__progress">
-          <div class="active-plan-banner__bar">
-            <div class="active-plan-banner__fill" style="width: 37%"></div>
-          </div>
-          <span class="active-plan-banner__pct">37% complete</span>
+        <div class="family-avatar-btn" data-member="sarah">
+          <div class="family-avatar" style="background:#e8d5f5;color:#7c3aed;">SB</div>
+          <p class="family-avatar-btn__name">Sarah</p>
+          <span class="family-role">Spouse</span>
         </div>
-      </div>
-
-      <!-- This week schedule -->
-      <div class="dash-card">
-        <div class="dash-card__header">
-          <div>
-            <h2 class="dash-card__title">This week's schedule</h2>
-            <p class="dash-card__sub">Jun 2 – Jun 8, 2025</p>
-          </div>
-          <button class="btn-outline btn--sm">Log workout</button>
+        <div class="family-avatar-btn" data-member="tommy">
+          <div class="family-avatar" style="background:#dbeafe;color:#1d4ed8;">TM</div>
+          <p class="family-avatar-btn__name">Tommy</p>
+          <span class="family-role">Son · 14</span>
         </div>
-        <div class="week-schedule">
-          <div class="week-day week-day--done">
-            <p class="week-day__name">Mon</p>
-            <div class="week-day__dot week-day__dot--done"></div>
-            <p class="week-day__label">Upper body</p>
+        <div class="family-avatar-btn" data-member="lily">
+          <div class="family-avatar" style="background:#fce7f3;color:#be185d;">LM</div>
+          <p class="family-avatar-btn__name">Lily</p>
+          <span class="family-role">Daughter · 10</span>
+        </div>
+        <div class="family-avatar-btn family-avatar-btn--add" id="addMemberBtn">
+          <div class="family-avatar family-avatar--add">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           </div>
-          <div class="week-day week-day--done">
-            <p class="week-day__name">Tue</p>
-            <div class="week-day__dot week-day__dot--rest"></div>
-            <p class="week-day__label">Rest</p>
-          </div>
-          <div class="week-day week-day--done">
-            <p class="week-day__name">Wed</p>
-            <div class="week-day__dot week-day__dot--done"></div>
-            <p class="week-day__label">Lower body</p>
-          </div>
-          <div class="week-day week-day--done">
-            <p class="week-day__name">Thu</p>
-            <div class="week-day__dot week-day__dot--done"></div>
-            <p class="week-day__label">Cardio</p>
-          </div>
-          <div class="week-day week-day--today">
-            <p class="week-day__name">Fri</p>
-            <div class="week-day__dot week-day__dot--today"></div>
-            <p class="week-day__label">Full body</p>
-          </div>
-          <div class="week-day">
-            <p class="week-day__name">Sat</p>
-            <div class="week-day__dot week-day__dot--rest"></div>
-            <p class="week-day__label">Rest</p>
-          </div>
-          <div class="week-day">
-            <p class="week-day__name">Sun</p>
-            <div class="week-day__dot week-day__dot--upcoming"></div>
-            <p class="week-day__label">Cardio</p>
-          </div>
+          <p class="family-avatar-btn__name">Add</p>
         </div>
       </div>
 
-      <!-- Today's workout detail -->
-      <div class="dash-card">
-        <div class="dash-card__header">
-          <div>
-            <h2 class="dash-card__title">Today · Full body strength</h2>
-            <p class="dash-card__sub">Est. 55 min · Intermediate</p>
-          </div>
-          <button class="btn-primary">Start workout</button>
-        </div>
-        <div class="exercise-list">
-          <div class="exercise-item">
-            <div class="exercise-item__num">1</div>
-            <div class="exercise-item__info">
-              <p class="exercise-item__name">Barbell Squat</p>
-              <p class="exercise-item__detail">4 sets × 8 reps · 60 kg</p>
+      <!-- Selected member detail panel -->
+      <div class="family-detail" id="familyDetail">
+
+        <!-- Member info bar -->
+        <div class="member-info-bar" id="memberInfoBar">
+          <div class="member-info-bar__left">
+            <div class="member-info-bar__avatar" id="memberAvatar">AM</div>
+            <div>
+              <p class="member-info-bar__name" id="memberName">Alex Morgan (You)</p>
+              <p class="member-info-bar__meta" id="memberMeta">Male · 35 · Premium plan</p>
             </div>
-            <span class="exercise-item__muscle">Legs</span>
+            <span class="member-status member-status--online">Active now</span>
           </div>
-          <div class="exercise-item">
-            <div class="exercise-item__num">2</div>
-            <div class="exercise-item__info">
-              <p class="exercise-item__name">Bench Press</p>
-              <p class="exercise-item__detail">3 sets × 10 reps · 50 kg</p>
-            </div>
-            <span class="exercise-item__muscle">Chest</span>
-          </div>
-          <div class="exercise-item">
-            <div class="exercise-item__num">3</div>
-            <div class="exercise-item__info">
-              <p class="exercise-item__name">Deadlift</p>
-              <p class="exercise-item__detail">3 sets × 6 reps · 80 kg</p>
-            </div>
-            <span class="exercise-item__muscle">Back</span>
-          </div>
-          <div class="exercise-item">
-            <div class="exercise-item__num">4</div>
-            <div class="exercise-item__info">
-              <p class="exercise-item__name">Pull-ups</p>
-              <p class="exercise-item__detail">3 sets × max reps</p>
-            </div>
-            <span class="exercise-item__muscle">Back</span>
-          </div>
-          <div class="exercise-item">
-            <div class="exercise-item__num">5</div>
-            <div class="exercise-item__info">
-              <p class="exercise-item__name">Plank</p>
-              <p class="exercise-item__detail">3 sets × 60 sec</p>
-            </div>
-            <span class="exercise-item__muscle">Core</span>
+          <div class="member-info-bar__right">
+            <button class="btn-outline btn--sm" id="viewFullProfileBtn">View full profile</button>
+            <button class="btn-outline btn--sm" id="msgBtn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Message
+            </button>
           </div>
         </div>
+
+        <!-- Health metrics grid for selected member -->
+        <div class="member-metrics-grid" id="memberMetrics">
+          <div class="member-metric-card">
+            <div class="member-metric-card__icon member-metric-card__icon--heart">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <p class="member-metric-card__label">Heart Rate</p>
+            <p class="member-metric-card__value" id="m-heart">62 <span>BPM</span></p>
+            <p class="member-metric-card__status member-metric-card__status--good">Optimal</p>
+          </div>
+          <div class="member-metric-card">
+            <div class="member-metric-card__icon member-metric-card__icon--sleep">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </div>
+            <p class="member-metric-card__label">Sleep</p>
+            <p class="member-metric-card__value" id="m-sleep">7h 42m</p>
+            <p class="member-metric-card__status member-metric-card__status--good">Excellent</p>
+          </div>
+          <div class="member-metric-card">
+            <div class="member-metric-card__icon member-metric-card__icon--steps">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <p class="member-metric-card__label">Steps Today</p>
+            <p class="member-metric-card__value" id="m-steps">9,400</p>
+            <p class="member-metric-card__status member-metric-card__status--good">On track</p>
+          </div>
+          <div class="member-metric-card">
+            <div class="member-metric-card__icon member-metric-card__icon--weight">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+            </div>
+            <p class="member-metric-card__label">Weight</p>
+            <p class="member-metric-card__value" id="m-weight">74.2 <span>kg</span></p>
+            <p class="member-metric-card__status member-metric-card__status--good">↓ −0.6 kg</p>
+          </div>
+          <div class="member-metric-card">
+            <div class="member-metric-card__icon member-metric-card__icon--bp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <p class="member-metric-card__label">Blood Pressure</p>
+            <p class="member-metric-card__value" id="m-bp">118/76</p>
+            <p class="member-metric-card__status member-metric-card__status--good">Good</p>
+          </div>
+          <div class="member-metric-card">
+            <div class="member-metric-card__icon member-metric-card__icon--workout">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+            </div>
+            <p class="member-metric-card__label">Workouts</p>
+            <p class="member-metric-card__value" id="m-workout">5 <span>/ 7</span></p>
+            <p class="member-metric-card__status member-metric-card__status--neutral">This week</p>
+          </div>
+        </div>
+
+        <!-- Recent activity -->
+        <div class="dash-card">
+          <div class="dash-card__header">
+            <div>
+              <h2 class="dash-card__title" id="recentTitle">Alex's recent activity</h2>
+              <p class="dash-card__sub">Last 7 days</p>
+            </div>
+          </div>
+          <div class="family-activity-list" id="memberActivity">
+            <div class="family-activity-item">
+              <div class="family-activity-item__icon family-activity-item__icon--workout">💪</div>
+              <div class="family-activity-item__info">
+                <p class="family-activity-item__text">Completed <strong>Full body strength</strong> workout</p>
+                <p class="family-activity-item__time">Today · 7:30 AM · 55 min</p>
+              </div>
+              <span class="activity-badge activity-badge--good">Done</span>
+            </div>
+            <div class="family-activity-item">
+              <div class="family-activity-item__icon family-activity-item__icon--goal">🎯</div>
+              <div class="family-activity-item__info">
+                <p class="family-activity-item__text">Steps goal <strong>10,000</strong> — 94% complete</p>
+                <p class="family-activity-item__time">Yesterday · 9,400 steps</p>
+              </div>
+              <span class="activity-badge activity-badge--warn">Almost</span>
+            </div>
+            <div class="family-activity-item">
+              <div class="family-activity-item__icon family-activity-item__icon--sleep">😴</div>
+              <div class="family-activity-item__info">
+                <p class="family-activity-item__text">Sleep logged: <strong>7h 42m</strong></p>
+                <p class="family-activity-item__time">Yesterday night · Score 88</p>
+              </div>
+              <span class="activity-badge activity-badge--good">Excellent</span>
+            </div>
+            <div class="family-activity-item">
+              <div class="family-activity-item__icon family-activity-item__icon--workout">🏃</div>
+              <div class="family-activity-item__info">
+                <p class="family-activity-item__text">Cardio session — <strong>32 min run</strong></p>
+                <p class="family-activity-item__time">2 days ago · 4.8 km</p>
+              </div>
+              <span class="activity-badge activity-badge--good">Done</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Available plans -->
-      <div class="dash-card">
-        <div class="dash-card__header">
-          <div>
-            <h2 class="dash-card__title">Available plans</h2>
-            <p class="dash-card__sub">Based on your profile</p>
+      <!-- Invite modal -->
+      <div class="modal-overlay" id="inviteModal">
+        <div class="modal">
+          <div class="modal__header">
+            <h3 class="modal__title">Invite family member</h3>
+            <button class="modal__close" id="closeInviteModal">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
           </div>
-        </div>
-        <div class="plans-grid">
-          <div class="plan-card plan-card--active">
-            <p class="plan-card__badge">Current</p>
-            <p class="plan-card__name">Beginner Strength Builder</p>
-            <p class="plan-card__meta">8 weeks · 5 days/week</p>
+          <div class="modal__body">
+            <div class="form-field">
+              <label class="form-label">Email address</label>
+              <input type="email" class="form-input" placeholder="family@example.com" id="inviteEmail"/>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Relationship</label>
+              <select class="form-input" id="inviteRole">
+                <option value="">Select...</option>
+                <option>Spouse / Partner</option>
+                <option>Child</option>
+                <option>Parent</option>
+                <option>Sibling</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="invite-permissions">
+              <p class="form-label" style="margin-bottom:10px;">They can see</p>
+              <label class="export-option"><input type="checkbox" class="export-check" checked/> My health metrics</label>
+              <label class="export-option"><input type="checkbox" class="export-check" checked/> My workouts</label>
+              <label class="export-option"><input type="checkbox" class="export-check"/> My weight</label>
+              <label class="export-option"><input type="checkbox" class="export-check" checked/> My goals &amp; streaks</label>
+            </div>
           </div>
-          <div class="plan-card">
-            <p class="plan-card__name">Fat Loss Accelerator</p>
-            <p class="plan-card__meta">6 weeks · 4 days/week</p>
-          </div>
-          <div class="plan-card">
-            <p class="plan-card__name">Cardio Endurance</p>
-            <p class="plan-card__meta">4 weeks · 3 days/week</p>
+          <div class="modal__footer">
+            <button class="btn-outline" id="cancelInvite">Cancel</button>
+            <button class="btn-primary" id="sendInvite">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send invite
+            </button>
           </div>
         </div>
       </div>
@@ -503,6 +556,6 @@
   </div>
 
   <script src="js/pages/main.js"></script>
-  <script src="js/pages/fitness.js"></script>
+  <script src="js/pages/family.js"></script>
 </body>
 </html>
